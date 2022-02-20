@@ -2,10 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shardingsphere.demo.mapper.UserInfoMapper">
-
-    <insert id="insert" parameterType="com.shardingsphere.demo.mapper.entity.UserInfoEntity">
-        insert into user_info (phone, addr)
-        values (#{phone}, #{addr})
-    </insert>
+    <select id="queryList" resultType="com.shardingsphere.demo.mapper.entity.UserInfoEntity">
+        select * from user_info order by id desc;
+    </select>
 
 </mapper>

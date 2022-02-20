@@ -33,3 +33,9 @@ spring:
             type: SNOWFLAKE
 ```
 > - 编写测试类，共提交十次insert语句，观察分片成功
+
+2022-2-20
+- 引入mybatis-plus
+- 修改yml-》properties
+- 引入范围分片
+- 从application.properties文件中分离出shardingjdbc配置文件

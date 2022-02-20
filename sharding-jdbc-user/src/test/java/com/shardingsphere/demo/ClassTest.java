@@ -1,5 +1,7 @@
 package com.shardingsphere.demo;
 
+import com.shardingsphere.demo.mapper.ClassMapper;
+import com.shardingsphere.demo.mapper.entity.ClassEntity;
 import com.shardingsphere.demo.mapper.entity.UserInfoEntity;
 import com.shardingsphere.demo.service.UserInfoService;
 import org.junit.Test;
@@ -14,22 +16,17 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class UserInfoTest {
+public class ClassTest {
     @Autowired
-    private UserInfoService userInfoService;
+    private ClassMapper classMapper;
 
     @Test
-    public void test() {
-        for (int i = 0;i<10;i++) {
-            UserInfoEntity entity = new UserInfoEntity();
-            entity.setAddr("addr:"+ i);
-            entity.setPhone("138000000"+i);
-            userInfoService.insert(entity);
+    public void insert() {
+        for (int i = 0;i<20;i++) {
+            ClassEntity entity = new ClassEntity();
+            entity.setCname("class"+i);
+            entity.setCid(i);
+            classMapper.insert(entity);
         }
-    }
-
-    @Test
-    public void queryList() {
-        System.out.println(userInfoService.queryList());
     }
 }
