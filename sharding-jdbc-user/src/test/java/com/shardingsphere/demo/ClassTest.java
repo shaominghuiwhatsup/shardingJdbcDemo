@@ -1,5 +1,7 @@
 package com.shardingsphere.demo;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.shardingsphere.demo.mapper.ClassMapper;
 import com.shardingsphere.demo.mapper.entity.ClassEntity;
 import com.shardingsphere.demo.mapper.entity.UserInfoEntity;
@@ -9,6 +11,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 /**
  * @Author: shaominghui
@@ -28,5 +32,11 @@ public class ClassTest {
             entity.setCid(i);
             classMapper.insert(entity);
         }
+    }
+
+    @Test
+    public void query() {
+        List<ClassEntity> classEntities = classMapper.selectList(new EntityWrapper<ClassEntity>().ge("cid", 11).le("cid", 19));
+        System.out.println(classEntities);
     }
 }

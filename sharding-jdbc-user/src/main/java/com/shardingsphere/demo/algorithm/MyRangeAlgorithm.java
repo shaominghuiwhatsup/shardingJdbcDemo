@@ -22,6 +22,6 @@ public class MyRangeAlgorithm implements RangeShardingAlgorithm<Integer> {
         Integer lowerTableIndex = (lower-1)/10 + 1;
         Integer upTableIndex = (upper-1)/10 + 1;
 
-        return Arrays.asList(logicTableName + "+" + lowerTableIndex, logicTableName + "+" + upTableIndex);
+        return Arrays.asList(logicTableName + "_" + lowerTableIndex, logicTableName + "_" + upTableIndex);
     }
 }
